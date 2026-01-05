@@ -822,6 +822,11 @@ function addonTable.CustomiseDialog.GetMainDesigner(parent)
         end
         if w.details.kind == "castIcon" and w.details.square then
           w.background:Show()
+          local flip = w.details.flip or {}
+          addonTable.Display.UpdateTextureFlip(w.marker, flip.horizontal, flip.vertical, 0.1, 0.9, 0.1, 0.9)
+        else
+          local flip = w.details.flip or {}
+          addonTable.Display.UpdateTextureFlip(w.marker, flip.horizontal, flip.vertical)
         end
       elseif w.kind == "highlights" then
         w:Show(true)
@@ -983,6 +988,28 @@ function addonTable.CustomiseDialog.GetMainDesigner(parent)
           frame = addonTable.CustomiseDialog.Components.GetColorPicker(parent, e.label, 28, Setter)
         elseif e.kind == "autoColors" then
           frame = GetAutomaticColors(parent, e.lockedElements)
+        elseif e.kind == "multiSelectDropdown" then
+          frame = addonTable.CustomiseDialog.Components.GetMultiSelectDropdown(parent, e.label, function(val)
+            -- IsSelected
+            if not parent.details then
+              return false
+            end
+            local current = e.getter(parent.details) or {}
+            return current[val]
+          end, function(val)
+            -- OnSelected
+            if not parent.details then
+              return
+            end
+            local old = e.getter(parent.details) or {}
+            local current = {}
+            for k, v in pairs(old) do
+              current[k] = v
+            end
+            current[val] = not current[val]
+            Setter(current)
+          end)
+          frame:Init(e.entries, e.values)
         end
 
         if frame then

@@ -547,6 +547,18 @@ addonTable.CustomiseDialog.WidgetsConfig = {
               return details.color
             end,
           },
+          {
+            label = addonTable.Locales.FLIP,
+            kind = "multiSelectDropdown",
+            entries = {addonTable.Locales.VERTICAL, addonTable.Locales.HORIZONTAL},
+            values = {"vertical", "horizontal"},
+            setter = function(details, value)
+              details.flip = value
+            end,
+            getter = function(details)
+              return details.flip or {}
+            end,
+          },
         },
       },
     },
