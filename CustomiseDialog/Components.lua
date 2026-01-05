@@ -107,8 +107,6 @@ function addonTable.CustomiseDialog.Components.GetBasicDropdown(parent, labelTex
   return frame
 end
 
-end
-
 function addonTable.CustomiseDialog.Components.GetSlider(parent, label, min, max, formatter, callback)
   local holder = CreateFrame("Frame", nil, parent)
   holder:SetHeight(40)
