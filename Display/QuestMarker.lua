@@ -21,7 +21,7 @@ function addonTable.Display.QuestMarkerMixin:UpdateMarker()
   self.marker:SetShown(C_QuestLog.UnitIsRelatedToActiveQuest and C_QuestLog.UnitIsRelatedToActiveQuest(self.unit))
   
   local flip = self.details.flip or {}
-  addonTable.Display.UpdateTextureFlip(self.marker, flip.horizontal, flip.vertical)
+  addonTable.Display.UpdateTextureFlip(self.marker, flip.horizontal)
 end
 
 function addonTable.Display.QuestMarkerMixin:OnEvent(eventName, ...)

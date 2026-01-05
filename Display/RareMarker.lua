@@ -14,7 +14,7 @@ function addonTable.Display.RareMarkerMixin:SetUnit(unit)
     end
     
     local flip = self.details.flip or {}
-    addonTable.Display.UpdateTextureFlip(self.marker, flip.horizontal, flip.vertical)
+    addonTable.Display.UpdateTextureFlip(self.marker, flip.horizontal)
   else
     self:Strip()
   end

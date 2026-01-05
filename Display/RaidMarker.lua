@@ -34,5 +34,5 @@ function addonTable.Display.RaidMarkerMixin:UpdateMarker()
   end
   
   local flip = self.details.flip or {}
-  addonTable.Display.UpdateTextureFlip(self.marker, flip.horizontal, flip.vertical)
+  addonTable.Display.UpdateTextureFlip(self.marker, flip.horizontal)
 end

@@ -52,5 +52,5 @@ function addonTable.Display.CannotInterruptMarkerMixin:ApplyCasting()
   end
   
   local flip = self.details.flip or {}
-  addonTable.Display.UpdateTextureFlip(self.marker, flip.horizontal, flip.vertical)
+  addonTable.Display.UpdateTextureFlip(self.marker, flip.horizontal)
 end

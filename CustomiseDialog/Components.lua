@@ -107,36 +107,6 @@ function addonTable.CustomiseDialog.Components.GetBasicDropdown(parent, labelTex
   return frame
 end
 
-function addonTable.CustomiseDialog.Components.GetMultiSelectDropdown(parent, labelText, isSelectedCallback, onSelectionCallback)
-  local frame = CreateFrame("Frame", nil, parent)
-  local dropdown = CreateFrame("DropdownButton", nil, frame, "WowStyle1DropdownTemplate")
-  dropdown:SetWidth(250)
-  dropdown:SetPoint("LEFT", frame, "CENTER", -32, 0)
-  local label = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  label:SetPoint("LEFT", 20, 0)
-  label:SetPoint("RIGHT", frame, "CENTER", -50, 0)
-  label:SetJustifyH("RIGHT")
-  label:SetText(labelText)
-  frame:SetPoint("LEFT", 30, 0)
-  frame:SetPoint("RIGHT", -30, 0)
-  frame.Init = function(_, entryLabels, values)
-    local entries = {}
-    for index = 1, #entryLabels do
-      table.insert(entries, {entryLabels[index], values[index]})
-    end
-    dropdown:SetupMenu(function(dropdown, rootDescription)
-      for i, entry in ipairs(entries) do
-        rootDescription:CreateCheckbox(entry[1], isSelectedCallback, onSelectionCallback, entry[2])
-      end
-    end)
-  end
-  frame.SetValue = function(_, _)
-  end
-  frame.Label = label
-  frame.DropDown = dropdown
-  frame:SetHeight(40)
-
-  return frame
 end
 
 function addonTable.CustomiseDialog.Components.GetSlider(parent, label, min, max, formatter, callback)
