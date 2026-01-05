@@ -110,8 +110,6 @@ L["SHOW_NAMEPLATES_ONLY_IF_NEEDED"] = "Show nameplates only if needed"
 L["NEVER"] = "Never"
 
 L["FLIP"] = "Flip"
-L["VERTICAL"] = "Vertical"
-L["HORIZONTAL"] = "Horizontal"
 L["NAME_ONLY_PLAYERS"] = "Name only (players)"
 L["ALWAYS_ALL"] = "Always (all)"
 L["ON_TARGET_SCALE"] = "On target scale"
