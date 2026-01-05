@@ -67,7 +67,7 @@ function addonTable.Display.Utilities.IsInRelevantInstance()
   return instanceType == "raid" or instanceType == "party" or instanceType == "arenas"
 end
 
-function addonTable.Display.UpdateTextureFlip(texture, flipHorizontal, flipVertical, minU, maxU, minV, maxV)
+function addonTable.Display.UpdateTextureFlip(texture, flipHorizontal, minU, maxU, minV, maxV)
   local ULx, ULy, LLx, LLy, URx, URy, LRx, LRy
   
   if minU then
@@ -81,23 +81,12 @@ function addonTable.Display.UpdateTextureFlip(texture, flipHorizontal, flipVerti
   
   local left = math.min(ULx, LLx, URx, LRx)
   local right = math.max(ULx, LLx, URx, LRx)
-  local top = math.min(ULy, LLy, URy, LRy)
-  local bottom = math.max(ULy, LLy, URy, LRy)
-  
   if flipHorizontal then
      ULx, LLx = right, right
      URx, LRx = left, left
   else
      ULx, LLx = left, left
      URx, LRx = right, right
-  end
-  
-  if flipVertical then
-     ULy, URy = bottom, bottom
-     LLy, LRy = top, top
-  else
-     ULy, URy = top, top
-     LLy, LRy = bottom, bottom
   end
   
   texture:SetTexCoord(ULx, ULy, LLx, LLy, URx, URy, LRx, LRy)
